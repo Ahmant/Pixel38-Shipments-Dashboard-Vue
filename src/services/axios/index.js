@@ -1,11 +1,13 @@
 import { useHandleHttpError } from '@/plugins/useHandleHttpError'
 import axios from "axios";
+import { useUserStore } from '../../stores/core/user';
 
 const handleHttpError = useHandleHttpError()
+const user = useUserStore()
 
 let instance = axios.create({
 	withCredentials: true,
-	baseURL: process.env.VUE_APP_API_URL + "/", // Sanctum Authentication: In order to authenticate, your SPA and API must share the same top-level domain.
+	baseURL: import.meta.env.VITE_API_URL + "/", // Sanctum Authentication: In order to authenticate, your SPA and API must share the same top-level domain.
 });
 instance.defaults.withCredentials = true
 instance.interceptors.request.use(request => {
@@ -24,6 +26,11 @@ instance.interceptors.response.use(
 	},
 	(error) => {
         handleHttpError(error);
+		
+        if (error.response && error.response.status === 401) {
+            user.logout();
+            window.location.reload();
+        }
 
         return Promise.reject(error);
 	}

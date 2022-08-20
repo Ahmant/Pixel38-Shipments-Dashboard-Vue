@@ -1,4 +1,5 @@
 <template>
+    <div :class="[sidebar.isOpen ? 'w-screen' : 'w-0', 'backdrop fixed  h-screen bg-black bg-opacity-30 z-100 md:hidden']" @click="sidebar.toggle"></div>
     <div :class="[sidebar.isOpen ? 'open' : 'closed', 'sidebar shadow-lg fixed md:relative z-100']">
         <div class="block p-3 rounded-lg bg-white w-full h-full">
             <div class="w-full h-10 flex justify-center items-center">

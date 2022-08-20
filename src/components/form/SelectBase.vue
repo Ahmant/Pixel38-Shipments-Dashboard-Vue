@@ -80,7 +80,7 @@
 </template>
 
 <script setup>
-    import { ref, defineProps, watch, computed } from "vue";
+    import { ref, watch, computed } from "vue";
     import { Listbox, ListboxLabel, ListboxButton, ListboxOptions, ListboxOption } from "@headlessui/vue";
     import { CheckIcon, SelectorIcon } from "@heroicons/vue/solid";
 

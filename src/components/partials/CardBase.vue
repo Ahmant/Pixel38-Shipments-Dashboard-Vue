@@ -2,11 +2,11 @@
     <div class="flex justify-center">
         <div class="block p-6 rounded-lg shadow-lg bg-white w-full">
             <h5
-                v-if="props.title"
+                v-if="title"
                 class="text-gray-900 text-xl leading-tight font-medium mb-2"
-                :class="'text-' + props.titleAlignment"
+                :class="'text-' + titleAlignment"
             >
-                {{ props.title }}
+                {{ title }}
             </h5>
             <slot></slot>
         </div>
@@ -14,9 +14,7 @@
 </template>
 
 <script setup>
-    import { defineProps } from "vue";
-
-    const props = defineProps({
+    defineProps({
         title: null,
         titleAlignment: null,
     });

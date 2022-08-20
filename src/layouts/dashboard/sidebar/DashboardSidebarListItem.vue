@@ -1,23 +1,24 @@
 <template>
     <li class="sidebar__item">
         <router-link
-            :to="{ name: props.item.route_name }"
+            :to="{ name: item.route_name }"
             class="flex items-center p-3 text-lg rounded-lg my-1"
             :class="{
                 'bg-primary text-white hover:bg-primary-hover': isActive,
                 'text-base-color hover:bg-gray-100': !isActive,
             }"
         >
-            <i :class="`${props.item.icon} w-7 h-7 sidebar__item__icon`"></i>
+            <i :class="`${item.icon} w-7 h-7 sidebar__item__icon`"></i>
 
-            <span class="ml-3 sidebar__item__text">{{ props.item.text }}</span>
+            <span class="ml-3 sidebar__item__text">{{ item.text }}</span>
         </router-link>
     </li>
 </template>
 
 <script setup>
-    import { defineProps, onMounted, ref, watch } from "vue";
+    import { onMounted, ref, watch } from "vue";
     import { useRoute, useRouter } from "vue-router";
+    
     const props = defineProps({
         item: null,
     });

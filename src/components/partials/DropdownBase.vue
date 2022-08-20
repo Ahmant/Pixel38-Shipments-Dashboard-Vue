@@ -42,7 +42,7 @@
                 "
             >
                 <div class="px-1 py-1">
-                    <MenuItem v-for="(option, index) in props.options" :key="index" as="div">
+                    <MenuItem v-for="(option, index) in options" :key="index" as="div">
                         <component :is="renderOption(option)"></component>
                     </MenuItem>
                 </div>
@@ -54,9 +54,9 @@
 
 <script setup>
     import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
-    import { defineProps, h, resolveComponent } from "vue";
+    import { h, resolveComponent } from "vue";
 
-    const props = defineProps({
+    defineProps({
         options: {
             type: Object,
         },

@@ -5,9 +5,9 @@
 npm install
 ```
 
-### Change API URL in .env file
+### Create an .env file
 ```
-VUE_APP_API_URL=YOUR_LARAVEL_PROJECT_URL
+VITE_API_URL=YOUR_LARAVEL_PROJECT_URL
 ```
 
 ### Compiles and hot-reloads for development

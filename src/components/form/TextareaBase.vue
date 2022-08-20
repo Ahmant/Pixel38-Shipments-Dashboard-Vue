@@ -1,8 +1,8 @@
 <template>
     <div class="flex justify-center">
         <div class="mb-3 w-full">
-            <label v-if="props.label" :for="id" class="form-label inline-block mb-1 text-gray-700">
-                {{ props.label }}
+            <label v-if="label" :for="id" class="form-label inline-block mb-1 text-gray-700">
+                {{ label }}
             </label>
             <textarea
                 :type="type"
@@ -25,7 +25,7 @@
                 "
                 :value="value"
                 :id="id"
-                :placeholder="props.placeholder"
+                :placeholder="placeholder"
                 @input="inputHandle"
                 :required="required"
             >
@@ -35,9 +35,9 @@
 </template>
 
 <script setup>
-    import { defineProps, defineEmits } from "vue";
+    import { defineEmits } from "vue";
 
-    const props = defineProps({
+    defineProps({
         text: String,
         label: String,
         placeholder: String,

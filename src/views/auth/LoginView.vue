@@ -49,7 +49,6 @@
 
                     let data = results.data.data;
                     localStorage.setItem("auth_token", data.token);
-                    userStore.set(data.user);
                     router.push({ name: "dashboard" });
                 })
                 .catch((error) => {
